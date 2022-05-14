@@ -19,6 +19,7 @@ const main = async () => {
     await generateTweetOfCollection(collection)
 
     countCollections++
+    await new Promise(resolve => setTimeout(resolve, 1000))
   }
 }
 
