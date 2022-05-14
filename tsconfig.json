@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",                                  /* Specify the base directory to resolve non-relative module names. */
+    "paths": {
+      "*": ["*"]
+    },
+    "target": "es2018",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "declaration": true
+  },
+}
