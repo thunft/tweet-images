@@ -19,6 +19,11 @@ jobs:
       with:
         node-version: '16'
     - run: npm install
+      env: 
+        TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+        TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+        TWITTER_OAUTH_TOKEN_CLIENT: ${{ secrets.TWITTER_OAUTH_TOKEN_CLIENT }}
+        TWITTER_OAUTH_SECRET_CLIENT: ${{ secrets.TWITTER_OAUTH_SECRET_CLIENT }}
     - run: npm run publishTweet
     - run: |
         git config user.name albertocruzluis
