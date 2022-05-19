@@ -8,7 +8,8 @@ export interface Filters {
   paymentPlan?: string | string[],
   tags?: string | string[],
   blockchain?: string | string[],
-  isVariablePaymentPlan?: boolean
+  isVariablePaymentPlan?: boolean,
+  paymentPlanOfPlanHistory?: string | string[]
 }
 
 const filterNFTCollectionByStatus = (collection: INFTCollection, status: string | string[]) => {
@@ -58,6 +59,15 @@ const filterNFTCollectionByIsVariablePlan = (collection: INFTCollection, isVaria
   return collection.isVariablePaymentPlan === isVariablePlan
 }
 
+const filterNFTCollectionByPaymentPlanOfPlanHistory = (collection: INFTCollection, paymentPlan: string | string[]) => {
+  const isPayments = collection.paymentPlanHistory[0].paymentList.length > 0
+  if (typeof paymentPlan === "string") {
+    return isPayments && collection.paymentPlanHistory[0].paymentList[0].paymentPlan === paymentPlan
+  } else {
+    return isPayments && paymentPlan.includes(collection.paymentPlanHistory[0].paymentList[0].paymentPlan)
+  }
+}
+
 export const getFilteredNFTCollection = (NFTCollection: INFTCollection[], {
   status,
   collectionId,
@@ -66,7 +76,8 @@ export const getFilteredNFTCollection = (NFTCollection: INFTCollection[], {
   paymentPlan,
   tags,
   blockchain,
-  isVariablePaymentPlan
+  isVariablePaymentPlan,
+  paymentPlanOfPlanHistory
 }: Filters) => {
   let filtered = NFTCollection
 
@@ -100,6 +111,10 @@ export const getFilteredNFTCollection = (NFTCollection: INFTCollection[], {
 
   if (blockchain) {
     filtered = filtered.filter(collection => filterNFTCollectionByBlockchain(collection, blockchain))
+  }
+
+  if (paymentPlanOfPlanHistory) {
+    filtered = filtered.filter(collection => filterNFTCollectionByPaymentPlanOfPlanHistory(collection, paymentPlanOfPlanHistory))
   }
 
   return filtered

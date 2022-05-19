@@ -32,6 +32,13 @@ export const GET_ALL_NFT_COLLECTIONS = gql`
     status
     paymentPlan
     isVariablePaymentPlan
+    paymentPlanHistory {
+      paymentList {
+        startDate
+        paymentPlan
+        paymentTxHash
+      }
+    }
   }
 }
 `

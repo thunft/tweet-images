@@ -4,8 +4,8 @@ dotenv.config();
 
 export const config = {
   subgraphApiUrl:
-    "https://api.thegraph.com/subgraphs/name/albertocruzluis/nftcollections-v3",
-  contractAddress: "0xA5dc4b08bd5203dAF4E4dd35e82a1A788B1B98B5",
+    "https://api.thegraph.com/subgraphs/name/albertocruzluis/nftcollections-v5",
+  contractAddress: "0xF009262CB3F30a7fdBc3C4A18E277ca8F2557806",
   mumbaiUrl: process.env.MUMBAI_URL,
   appKey: process.env.TWITTER_API_KEY as string,
   appSecret: process.env.TWITTER_API_SECRET as string,

@@ -1,7 +1,11 @@
+export interface IPayment {
+  startDate: string,
+  paymentPlan: string,
+  paymentTxHash: string
+}
+
 export interface IPaymentPlanHistory {
-  paymentPlan: string;
-  startDate: string;
-  paymentTxHash: string;
+  paymentList: IPayment[]
 }
 
 export interface INFTCollection {
@@ -23,6 +27,7 @@ export interface INFTCollection {
   paymentPlan: string;
   isVariablePaymentPlan: boolean;
   status: string;
+  paymentPlanHistory: IPaymentPlanHistory[];
 }
 
 export interface IRawNFTCollection {
