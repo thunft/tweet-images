@@ -1,5 +1,5 @@
 import { writeFile } from "../lib/io";
-import { getMintTweet, ICollectionData } from "../templates/tweets";
+import { getMintTweet, ICollectionData } from "../templates/Mint/tweet";
 import { INFTCollection } from "../types/subgraph";
 
 const dayTime = 1000 * 60 * 60 * 24;
@@ -27,12 +27,12 @@ export const generateTweetOfCollection = async (collection: INFTCollection) => {
     "data": [
       {
         "text": tweet,
-        "media": `./data/images/${collection.collectionId}.png`
+        "media": `./data/Mint/images/${collection.collectionId}.png`
       }
     ],
     "isPublished": false
   }
 
-  await writeFile(`./data/tweets/${collection.collectionId}.json`, JSON.stringify(newTask))
+  await writeFile(`./data/Mint/tweets/${collection.collectionId}.json`, JSON.stringify(newTask))
   return newTask
 }

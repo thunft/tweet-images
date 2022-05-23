@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "createDailyMint": "ts-node ./scripts/createDailyMint.ts",
     "createTweetImage": "ts-node scripts/createTweetImage.ts",
     "publishTweet": "ts-node scripts/publishTweet.ts"
   },
@@ -25,9 +26,13 @@
     "fs": "^0.0.1-security",
     "graphql-request": "^4.2.0",
     "is-ipfs": "^6.0.2",
+    "node-fetch": "2.0.0",
     "node-html-to-image": "^3.2.4",
     "slugify": "^1.6.5",
     "ts-node": "^10.7.0",
     "twitter-api-v2": "^1.12.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.1"
   }
 }
