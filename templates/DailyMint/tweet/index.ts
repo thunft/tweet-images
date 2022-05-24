@@ -1,3 +1,5 @@
+import dayjs from "dayjs"
+
 const formatMintDate = (date: string) => {
   const dateTime = date.split(" ")
   const time = dateTime[0]
@@ -9,14 +11,16 @@ const formatMintDate = (date: string) => {
   return timeFormatWithUTC
 }
 
+const date = dayjs().format('MMM DD');
+
 export const getMintTweet = (drops: any) => {
   return `Daily Mints in #SolanaNFT 🚀
 
-⏰ Mint May 23
+⏰ Mint ${date}
 
 ${drops.map(({ twitterHandle, mintDate }: any) => `${formatMintDate(mintDate)} @${twitterHandle}`).join('\n')}
 
-🔗 thunft.com/daily-mint/solana
+🔗 thunft.com/daily-mints/solana
 
 #NFTCollections`
 }

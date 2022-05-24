@@ -1,11 +1,6 @@
 name: Create Image & Tweet of Daily Mint
 
-on:
-  push:
-    branches:
-      - master
-  workflow_dispatch:
-  
+on:  
   schedule:
     - cron: "10 0 * * *"
 
