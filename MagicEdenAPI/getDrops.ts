@@ -25,10 +25,14 @@ const formatDrops = (drops: any) => {
   return drops.map((drop: any) => {
     return {
       image: drop.assets.profileImage,
-      twitterHandle: drop.links.twitter.split("/").pop(),
+      twitterHandle: removeCharactersNotAllowedInTwitterHandle(drop.links.twitter.split("/").pop().substr(0, 15)),
       mintDate: dayjs(drop.launchDate).format("HH:mm UTC")
     }
   })
+}
+
+const removeCharactersNotAllowedInTwitterHandle = (twitterHandle: string) => {
+  return twitterHandle.replace(/[^a-zA-Z0-9_]/g, "")
 }
 
 const filterByTodayLaunch = (drops: any) => {

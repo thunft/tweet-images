@@ -18,7 +18,7 @@ const getHtmlOfDrops = (drops: IDrop[]) => {
           <div class="absolute -bottom-2 z-10 flex justify-center rounded-full bg-neutral-200 px-4">
             <span class="text-lg font-bold text-indigo-900">@${twitterHandle}</span>
           </div>
-          <img class="absolute rounded-full ring-4 ring-neutral-200" src="${image}" />
+          <img class="absolute rounded-full ring-4 ring-neutral-200 w-[140px] h-[140px]" src="${image}" />
         </div>
       </div>
     `;

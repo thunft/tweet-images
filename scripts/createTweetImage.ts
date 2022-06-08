@@ -4,7 +4,7 @@ import { generateTweetOfCollection } from "./generateTweetOfCollection"
 import fs from "fs"
 
 const main = async () => {
-  const collections = await getNFTCollections({ status: "1", paymentPlanOfPlanHistory: ["basic", "premium", "featured"] }, { collectionId: { asc: false } })
+  const collections = await getNFTCollections({ status: "1", paymentPlanOfPlanHistory: ["free", "basic", "premium", "featured"] }, { collectionId: { asc: false } })
 
   let countCollections = 0
   for (const collection of collections) {

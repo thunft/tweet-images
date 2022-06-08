@@ -11,7 +11,7 @@ export const getBody = ({ name, mintDate, blockchain, imageURI, websiteURL }: ID
         </div>
         <div class="col-span-3 flex flex-col justify-center gap-8">
           <span class="text-6xl font-bold text-neutral-100">${name}</span>
-          <span class="text-8xl font-bold text-neutral-100/10">MINT</span>
+          <span class="text-8xl font-bold text-neutral-100/10">LISTED</span>
           <div class="flex max-w-max items-center justify-center rounded-xl border border-neutral-200 bg-[#292929]/50 p-2 px-8">
             <span class="font-bold text-neutral-100">${websiteURL}</span>
           </div>
