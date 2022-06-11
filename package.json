@@ -28,6 +28,8 @@
     "is-ipfs": "^6.0.2",
     "node-fetch": "2.6.7",
     "node-html-to-image": "^3.2.4",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin-stealth": "^2.9.0",
     "slugify": "^1.6.5",
     "ts-node": "^10.7.0",
     "twitter-api-v2": "^1.12.0"

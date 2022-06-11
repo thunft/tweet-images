@@ -1,11 +1,30 @@
 import dayjs from "dayjs"
 import { MAGIC_EDEN_API_URL } from "./constants"
 import fetch from 'node-fetch'
+import puppeteer from "puppeteer-extra"
+import StealthPlugin from "puppeteer-extra-plugin-stealth"
+
+puppeteer.use(StealthPlugin())
 
 const getDropsFromMagicEden = async () => {
   try {
-    const drops = await fetch(`${MAGIC_EDEN_API_URL}/drops?limit=250&offset=0`)
-    return await drops.json()
+    const browser = await puppeteer.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"]
+    })
+
+    const page = await browser.newPage()
+    await page.goto(`${MAGIC_EDEN_API_URL}/drops?limit=250&offset=0`)
+
+    await page.waitForSelector(".cf-browser-verification", { hidden: true })
+
+    const drops = await page.evaluate(() => {
+      const nextDataStr = document.getElementsByTagName("pre").item(0)?.innerText
+      return JSON.parse(nextDataStr || "{}")
+    })
+
+    browser.close()
+
+    return await drops
   } catch (error) {
     console.error(error)
   }
